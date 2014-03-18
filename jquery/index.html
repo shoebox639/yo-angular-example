@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('#test-input').change(function() {
+                    console.log('changed' + $(this).val());
+                    $('#input-bind').text($(this).val());
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div>
+            <p id="input-bind"></p>
+        </div>
+        <div>
+            <input id="test-input" />
+        </div>
+    </body>
+</html>
