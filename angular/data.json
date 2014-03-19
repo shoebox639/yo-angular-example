@@ -1,0 +1,14 @@
+{
+    "people": [
+        {
+            "name": "Eddard Stark",
+            "address": "Winterfell, Westeros",
+            "status": "Deceased"
+        },
+        {
+            "name": "Arya Stark",
+            "address": "Unknown",
+            "status": "Unknown"
+        }
+    ]
+}
