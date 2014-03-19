@@ -1,0 +1,39 @@
+<html ng-app="app">
+    <head>
+        <script src="bower_components/angular/angular.js" ></script>
+        <script src="main.js" ></script>
+    </head>
+
+    <body>
+        <div ng-controller="ctrl">
+            <div>
+                <p>{{inputVal}}</p>
+                <p>{{foo}}</p>
+                <button ng-click="buttonClicked(inputVal)">Click Me</button>
+                <button ng-click="setNum(3)">Set number</button>
+            </div>
+            <div>
+                <input ng-model="inputVal" />
+            </div>
+        </div>
+        <div ng-controller="ctrl2">
+            <div>
+                <p>{{inputVal}}</p>
+                <p>{{foo}}</p>
+                <button ng-click="buttonClicked(inputVal)">Click Me</button>
+            </div>
+            <div>
+                <input ng-model="inputVal" />
+            </div>
+        </div>
+
+        <div x-yo-red-paragraph>
+            TExT
+        </div>
+
+
+        <div x-yo-red-paragraph>
+            Another paragraph
+        </div>
+    </body>
+</html>
