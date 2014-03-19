@@ -3,6 +3,8 @@
         <title>Angular</title>
         <script src="bower_components/angular/angular.js" ></script>
         <script src="main.js" ></script>
+
+        <style>.red {color:red;}</style>
     </head>
 
     <body>
@@ -14,6 +16,22 @@
             <div>
                 <input ng-model="inputVal" />
             </div>
+            <button ng-click="alertMe(inputVal)">Click me</button>
+            <div>Counter: {{counter()}}</div>
+            <button ng-click="increment()">Increment by 1</button>
+            <button ng-click="increment(inputVal)">Increment by {{inputVal}}</button>
+        </div>
+
+        <div ng-controller="ctrl2">
+            The counter should still be: {{counter()}}
+        </div>
+        <!--yoRedParagraph -->
+        <div x-yo-red-paragraph>
+            TEXT sadf asdf 
+        </div>
+
+        <div x-yo-red-paragraph>
+            another text
         </div>
     </body>
 </html>
