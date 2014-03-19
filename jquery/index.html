@@ -3,7 +3,7 @@
         <script src="bower_components/jquery/dist/jquery.min.js"></script>
         <script>
             $(document).ready(function() {
-                $('#test-input').change(function() {
+                $('#test-input').bind('change keydown input', function() {
                     $('#input-bind').text($(this).val());
                 });
             });
@@ -11,10 +11,11 @@
     </head>
     <body>
         <div>
-            <p id="input-bind"></p>
+            <label>Input:</label>
+            <input id="test-input" />
         </div>
         <div>
-            <input id="test-input" />
+            <p>Value of the Input is: <span id="input-bind"></span></p>
         </div>
     </body>
 </html>

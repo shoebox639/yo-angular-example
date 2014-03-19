@@ -1,36 +1,37 @@
 var module = angular.module('app', []);
 
-module.service('svc', function() {
-    var y = 5;
+module.controller('ctrl', ['$scope', 'svc', function($scope, svc) {
+    $scope.title = 'hello world!';
 
-    this.setNum = function(i) {
-        y = i;
+    $scope.alertMe = function(val) {
+        alert('I was pressed and val was ' + val + '.');
     }
 
-    this.add = function(x) {
-        return parseInt(x) + parseInt(y);
+    $scope.count = function() {
+        return svc.count;
+    }
+
+    $scope.increment = function(x) {
+        svc.increment(x);
+    }
+
+}]);
+
+module.controller('anotherCtrl', ['$scope', 'svc', function($scope, svc) {
+    $scope.count = function() {
+        return svc.count;
+    }
+}]);
+
+module.service('svc', function() {
+    return {
+        count: 0,
+        increment: function(x) {
+            x = parseInt(x) || 1;
+            this.count += x;
+        }
     }
 });
-
-module.controller('ctrl', ['$scope', 'svc', function($scope, svc) {
-    $scope.foo = 'good bye world!';
-
-    $scope.setNum = function(i) {
-        svc.setNum(i);
-    }
-
-    $scope.buttonClicked = function(i) {
-        alert(svc.add(i));
-    }
-}]);
-
-module.controller('ctrl2', ['$scope', 'svc', function($scope, svc) {
-    $scope.foo = 'good bye world!';
-
-    $scope.buttonClicked = function(i) {
-        alert(svc.add(i));
-    }
-}]);
 
 module.directive('yoRedParagraph', function() {
     return {
@@ -38,12 +39,10 @@ module.directive('yoRedParagraph', function() {
         transclude: true,
         replace: true,
         scope: true,
-        template: '<div><p ng-click="clicked()" ng-style="style" ng-transclude></p></div>',
+        template: '<div><p ng-click="clicked()" ng-class="{red: isRed}" ng-transclude></p></div>',
         controller: ['$scope', function($scope) {
-            console.log($scope);
             $scope.clicked = function() {
-
-                $scope.style = {color:'red'}
+                $scope.isRed = !$scope.isRed;
                 // alert('I was pressed');
             };          
         }]

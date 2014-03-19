@@ -2,29 +2,29 @@
     <head>
         <script src="bower_components/angular/angular.js" ></script>
         <script src="main.js" ></script>
+        <style>
+            .red {color: red;}
+            div {padding-bottom: 10px;}
+        </style>
     </head>
 
     <body>
         <div ng-controller="ctrl">
+            <h1>{{title}}</h1>
             <div>
-                <p>{{inputVal}}</p>
-                <p>{{foo}}</p>
-                <button ng-click="buttonClicked(inputVal)">Click Me</button>
-                <button ng-click="setNum(3)">Set number</button>
+                <label>Input: </label>
+                <input ng-model="inputVal"/>
+                <button ng-click="alertMe(inputVal)">Click me!</button>
+                <span>Value of the Input is: {{inputVal}}</span>
             </div>
             <div>
-                <input ng-model="inputVal" />
+                Count: {{count()}}
+                <button ng-click="increment()">Increment</button>
+                <button ng-click="increment(inputVal)">Increment by {{inputVal}}</button>
             </div>
         </div>
-        <div ng-controller="ctrl2">
-            <div>
-                <p>{{inputVal}}</p>
-                <p>{{foo}}</p>
-                <button ng-click="buttonClicked(inputVal)">Click Me</button>
-            </div>
-            <div>
-                <input ng-model="inputVal" />
-            </div>
+        <div ng-controller="anotherCtrl">
+            The count in another scope is still: {{count()}}
         </div>
 
         <div x-yo-red-paragraph>
